@@ -53,6 +53,8 @@ with open("README.md", "r") as f:
 
 setuptools.setup(
     name="yolox",
+    setup_requires=["сython","numpy", "cython_bbox"],
+    install_requires=["сython","numpy", "cython_bbox"],
     version=version,
     author="basedet team",
     python_requires=">=3.6",
