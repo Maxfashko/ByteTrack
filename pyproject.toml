@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "yolox"
+version = "1.0.0"
+description = ""
+authors = ["vizorlabs"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.7.4, <3.11"
+
+# torch-pypi
+# необязательные зависимости, т.к. base-gpu может базироваться на других версиях torch, torchvision
+torch =       { version = "=1.10.0+cu113", source = "pytorch", markers = "platform_machine == 'x86_64'", optional = true}
+torchvision = { version = "=0.11.0+cu113", source = "pytorch", markers = "platform_machine == 'x86_64'", optional = true}
+
+# general dependencies
+numpy = "^1.21.6"
+opencv-contrib-python = "=4.6.0.66"
+opencv-python = "=4.6.0.66"
+loguru = "^0.6.0"
+scikit-image = "=0.19.3"
+tqdm = "*"
+Pillow = "=9.3.0"
+thop = "*"
+ninja = "*"
+tabulate = "*"
+tensorboard = "*"
+motmetrics = "*"
+filterpy = "*"
+h5py = "*"
+onnx = "^1.8.0"
+onnxruntime = "^1.8.0"
+onnx-simplifier = "^0.3.5"
+lap = {git = "https://github.com/Maxfashko/lap"} # my fork with resolved numpy and cython requirements
+
+
+# необязательные зависимости, т.к. base-gpu может базироваться на других версиях torch, torchvision
+[tool.poetry.extras]
+ml = ["torch", "torchvision"]
+
+[[tool.poetry.source]]
+name = "vizorlabs-pypi"
+url = "https://pip.vizorlabs.ru/simple"
+secondary = true
+
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu113/"
+secondary = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
