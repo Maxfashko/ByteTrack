@@ -15,12 +15,12 @@ torchvision = { version = "=0.11.0+cu113", source = "pytorch", markers = "platfo
 
 # general dependencies
 numpy = "^1.21.6"
-opencv-contrib-python = "=4.6.0.66"
-opencv-python = "=4.6.0.66"
+opencv-contrib-python = ">=4.6.0.66"
+opencv-python = ">=4.6.0.66"
 loguru = "^0.6.0"
 scikit-image = "=0.19.3"
 tqdm = "*"
-Pillow = "=9.3.0"
+Pillow = ">=9.3.0"
 thop = "*"
 ninja = "*"
 tabulate = "*"
@@ -37,11 +37,6 @@ cython-bbox = {git = "https://github.com/Maxfashko/cython_bbox"} # for ByteTrack
 # необязательные зависимости, т.к. base-gpu может базироваться на других версиях torch, torchvision
 [tool.poetry.extras]
 torch_ext = ["torch", "torchvision"]
-
-[[tool.poetry.source]]
-name = "vizorlabs-pypi"
-url = "https://pip.vizorlabs.ru/simple"
-secondary = true
 
 [[tool.poetry.source]]
 name = "pytorch"
